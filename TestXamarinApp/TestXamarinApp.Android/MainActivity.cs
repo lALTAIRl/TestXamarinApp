@@ -1,5 +1,7 @@
 ﻿using System;
-
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -12,6 +14,9 @@ namespace TestXamarinApp.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AppCenter.Start("b70ee9e0-1c99-4ba9-a60f-b4998371e929",
+                   typeof(Analytics), typeof(Crashes));
+
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
